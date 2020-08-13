@@ -1,0 +1,1 @@
+keytool -genkeypair -v -keystore growth-tribe-kc.keystore -alias growth-tribe-kc -keyalg RSA -keysize 2048 -validity 10000
