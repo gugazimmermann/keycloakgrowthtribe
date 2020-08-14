@@ -17,8 +17,10 @@ export default function Splash() {
   async function getAuthTokens() {
     loginKC.setConf(conf);
     const tokens = await loginKC.getTokens();
+    console.log("Splash:",  JSON.stringify(tokens, undefined, 2))
     if (tokens) {
       const refreshedTokens = await loginKC.refreshToken();
+      console.log("Splash Refresh:",  JSON.stringify(refreshedTokens, undefined, 2))
       if (refreshedTokens) navigation.navigate('Home');
     } else navigation.navigate('Login');
   }

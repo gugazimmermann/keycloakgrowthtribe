@@ -9,10 +9,13 @@ export default function Callback({route}) {
   const {params} = route;
   const {code} = params;
 
+  console.log("Code:", JSON.stringify(code, undefined, 2));
   async function getAuthTokens() {
     const tokens = await loginKC.getTokens();
+    console.log(" Tokens:", JSON.stringify(tokens, undefined, 2))
     if (tokens) {
       const refreshedTokens = await loginKC.refreshToken();
+      console.log("Refreshed  Tokens:", JSON.stringify(refreshedTokens, undefined, 2))
       if (refreshedTokens) navigation.navigate('Home');
     } else navigation.navigate('Login');
   }
